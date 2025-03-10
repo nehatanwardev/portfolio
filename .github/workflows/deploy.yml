@@ -68,6 +68,7 @@ jobs:
       - name: Build the Flutter web app
         run: |
           flutter build web --release --base-href /portfolio/
+          
 
       - name: Deploy to GitHub Pages
         env:
