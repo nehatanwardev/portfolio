@@ -26,6 +26,21 @@ This project uses GitHub Actions for CI/CD to automatically build and deploy the
 3. Under "Source", select "GitHub Actions"
 4. The website will be deployed automatically when you push to the main branch
 
+### Setting up Deployment Permissions
+
+For the GitHub Actions workflow to deploy successfully, you need to set up a Personal Access Token:
+
+1. Go to your GitHub account settings
+2. Click on "Developer settings" in the left sidebar
+3. Click on "Personal access tokens" → "Tokens (classic)"
+4. Click "Generate new token" → "Generate new token (classic)"
+5. Give it a descriptive name like "Portfolio Deployment"
+6. Set the expiration as needed (recommended: 90 days)
+7. Select the `repo` scope (Full control of private repositories)
+8. Click "Generate token" and copy the token
+9. Go to your repository settings → "Secrets and variables" → "Actions"
+10. Create a new repository secret named `PERSONAL_ACCESS_TOKEN` with the token value
+
 ### Manual Deployment
 
 If you want to deploy manually:

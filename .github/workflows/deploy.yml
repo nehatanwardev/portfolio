@@ -1,81 +1,37 @@
-# name: Deploy Flutter Web
-
-# on:
-#   push:
-#     branches: [main]
-#   workflow_dispatch:
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - uses: actions/checkout@v3
-
-#       - name: Setup Flutter
-#         uses: subosito/flutter-action@v2
-#         with:
-#           flutter-version: "3.27.0"
-#           channel: "stable"
-
-#       - name: Install dependencies
-#         run: flutter pub get
-
-#       - name: Enable Flutter web
-#         run: flutter config --enable-web
-
-#       - name: Build web
-#         run: flutter build web --release --base-href /portfolio/
-
-#       - name: Deploy to GitHub Pages
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: ./build/web
-#           force_orphan: true
-
-name: Deploy Flutter Web to GitHub Pages
+name: Deploy Flutter Web
 
 on:
   push:
-    branches:
-      - main # Trigger deployment on push to the main branch
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Set up Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.27.0"
+          channel: "stable"
 
       - name: Install dependencies
-        run: |
-          flutter pub get
+        run: flutter pub get
 
-      - name: Build the Flutter web app
-        run: |
-          flutter build web
+      - name: Enable Flutter web
+        run: flutter config --enable-web
+
+      - name: Build web
+        run: flutter build web --release --base-href /portfolio/
 
       - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.name 'nehatanwardev'
-          git config --global user.email 'nehatanwar.dev@gmail.com'
-
-          # Create the gh-pages branch if it doesn't exist
-          git checkout -b gh-pages
-
-          # Copy the web build files to the root of the gh-pages branch
-          cp -r build/web/* .
-
-          # Add and commit the changes
-          git add .
-          git commit -m "Deploy Flutter web app to GitHub Pages"
-
-          # Push changes to the gh-pages branch
-          git push --force --quiet "https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages:gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./build/web
+          force_orphan: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
