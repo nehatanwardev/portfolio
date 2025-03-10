@@ -1,90 +1,72 @@
-# Neha Tanwar - Portfolio
+# Portfolio Website
 
-A modern, responsive portfolio website built with Flutter for both web and mobile platforms.
+A responsive portfolio website built with Flutter Web.
+
+## Live Demo
+
+Visit the live website: [https://nehatanwardev.github.io/portfolio/](https://nehatanwardev.github.io/portfolio/)
 
 ## Features
 
-- **Responsive Design**: Adapts seamlessly to different screen sizes (mobile, tablet, desktop)
-- **Dark/Light Mode**: Toggle between dark and light themes with persistent settings
-- **Animated UI**: Smooth animations and transitions for an engaging user experience
-- **Cross-Platform**: Works on web, iOS, and Android
-- **GetX State Management**: Efficient state management using GetX
-- **Google Fonts Integration**: Using Poppins font family from Google Fonts
-- **ScreenUtil Integration**: Consistent UI sizing across different screen sizes
-- **Section Navigation**: Smooth scrolling to sections when clicking on navigation items
+- Responsive design that works on mobile, tablet, and desktop
+- Dark/Light mode support
+- Animated UI elements
+- Project showcase
+- Skills and experience sections
+- Contact information
 
-## Sections
+## CI/CD and Deployment
 
-- **Header**: Introduction and quick overview
-- **About**: Personal information and professional profile
-- **Experience**: Work history and professional experience
-- **Projects**: Showcase of notable projects with descriptions and technologies used
-- **Skills**: Technical skills categorized by domain
-- **Education**: Educational background and qualifications
-- **Contact**: Contact form and information
+This project uses GitHub Actions for CI/CD to automatically build and deploy the website to GitHub Pages.
 
-## Technologies Used
+### Setting up GitHub Pages
 
-- **Flutter**: Cross-platform UI framework
-- **Dart**: Programming language
-- **GetX**: State management, navigation, and dependency injection
-- **Responsive Framework**: For responsive design
-- **Flutter ScreenUtil**: For consistent UI sizing across different devices
-- **Flutter Animate**: For animations
-- **URL Launcher**: For handling external links
-- **Font Awesome Flutter**: For icons
-- **Google Fonts**: For typography
-- **Timeline Tile**: For experience timeline
-- **Flutter Staggered Grid View**: For project layout
+1. Go to your GitHub repository
+2. Navigate to Settings > Pages
+3. Under "Source", select "GitHub Actions"
+4. The website will be deployed automatically when you push to the main branch
 
-## Getting Started
+### Manual Deployment
 
-1. **Clone the repository**:
-   ```
-   git clone https://github.com/nehatanwar/portfolio.git
-   ```
+If you want to deploy manually:
 
-2. **Install dependencies**:
-   ```
-   flutter pub get
-   ```
+```bash
+# Install dependencies
+flutter pub get
 
-3. **Run the app**:
-   ```
-   flutter run -d chrome  # For web
-   flutter run            # For mobile
-   ```
+# Build web release
+flutter build web --release
+
+# The output will be in the build/web directory
+```
+
+## Development
+
+### Prerequisites
+
+- Flutter SDK (3.16.0 or higher)
+- Dart SDK (3.0.0 or higher)
+
+### Running Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/nehatanwardev/portfolio.git
+
+# Navigate to the project
+cd portfolio
+
+# Install dependencies
+flutter pub get
+
+# Run in debug mode
+flutter run -d chrome
+```
 
 ## Customization
 
-The portfolio is designed to be easily customizable:
-
-- Update personal information in `lib/constants/app_constants.dart`
-- Modify themes in `lib/utils/app_theme.dart`
-- Add or remove sections by editing `lib/views/home_view.dart`
-
-## Deployment
-
-### Web
-```
-flutter build web
-```
-Deploy the generated files in the `build/web` directory to any web hosting service.
-
-### Mobile
-```
-flutter build apk      # For Android
-flutter build ios      # For iOS
-```
+Edit the `lib/constants/app_constants.dart` file to update your personal information, projects, skills, and experience.
 
 ## License
 
-This project is open-source and available under the MIT License.
-
-## Contact
-
-Neha Tanwar - nehatanwar197@gmail.com
-
----
-
-Created with ❤️ using Flutter
+MIT
