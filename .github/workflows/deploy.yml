@@ -51,9 +51,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          persist-credentials: true
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -64,33 +61,24 @@ jobs:
         run: |
           flutter pub get
 
+      - name: Enable Flutter web
+        run: |
+          flutter config --enable-web
+
       - name: Build the Flutter web app
         run: |
           flutter build web --release --base-href /portfolio/
 
       - name: Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          cd build/web
+          git init
           git config --global user.name 'nehatanwardev'
           git config --global user.email 'nehatanwar.dev@gmail.com'
-
-          # Create the gh-pages branch if it doesn't exist
-          git checkout --orphan gh-pages
-          git reset --hard
-
-          # Remove all files except the build/web directory
-          find . -maxdepth 1 ! -name 'build' ! -name '.git' -exec rm -rf {} \;
-
-          # Copy the web build files to the root
-          cp -r build/web/* .
-
-          # Create a .nojekyll file to bypass GitHub Pages Jekyll processing
-          touch .nojekyll
-
-          # Stage all files
           git add .
-
-          # Commit the changes
           git commit -m "Deploy Flutter web app to GitHub Pages"
-
-          # Push to the gh-pages branch using the personal access token
-          git push -f "https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
+          git branch -M gh-pages
+          git remote add origin https://${{ github.actor }}:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+          git push -f origin gh-pages
