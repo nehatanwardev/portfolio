@@ -44,7 +44,7 @@ flutter build web --release
 
 ### Prerequisites
 
-- Flutter SDK (3.16.0 or higher)
+- Flutter SDK (3.27.0 or higher)
 - Dart SDK (3.0.0 or higher)
 
 ### Running Locally
