@@ -1,0 +1,39 @@
+# Test Case 1: Example from problem statement
+# Expected output: 8
+[2, 8, 4, 3, 2]
+7 11 3
+
+# Test Case 2: Example from problem statement
+# Expected output: -1
+[5]
+4 0 3
+
+# Test Case 3: All cars can be served immediately
+# Expected output: 0
+[1, 2, 3]
+10 10 10
+
+# Test Case 4: Some cars need to wait
+# Expected output: 5
+[3, 4, 5, 2, 1]
+5 5 5
+
+# Test Case 5: Edge case - exactly enough fuel
+# Expected output: 0
+[7, 11, 3]
+7 11 3
+
+# Test Case 6: Edge case - large fuel demands
+# Expected output: 999999999
+[1000000000, 1000000000]
+1000000000 1000000000 0
+
+# Test Case 7: Edge case - long queue
+# Expected output: 9
+[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+3 3 3
+
+# Test Case 8: Edge case - one dispenser only
+# Expected output: 3
+[1, 1, 1, 1]
+4 0 0 
