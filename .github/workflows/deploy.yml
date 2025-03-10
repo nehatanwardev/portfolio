@@ -47,39 +47,36 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # This is important for the deployment action
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # Using v3 for better compatibility
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.27.0"
+          channel: "stable"
 
       - name: Install dependencies
-        run: |
-          flutter pub get
+        run: flutter pub get
 
       - name: Enable Flutter web
-        run: |
-          flutter config --enable-web
+        run: flutter config --enable-web
 
       - name: Build the Flutter web app
-        run: |
-          flutter build web --release --base-href /portfolio/
-          
+        run: flutter build web --release --base-href /portfolio/
 
+      # Create .nojekyll file to prevent Jekyll processing
+      - name: Add .nojekyll file
+        run: touch build/web/.nojekyll
+
+      # Deploy to GitHub Pages using a dedicated action
       - name: Deploy to GitHub Pages
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          cd build/web
-          git init
-          git config --global user.name 'nehatanwardev'
-          git config --global user.email 'nehatanwar.dev@gmail.com'
-          git add .
-          git commit -m "Deploy Flutter web app to GitHub Pages"
-          git branch -M gh-pages
-          git remote add origin https://${{ github.actor }}:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
-          git push -f origin gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/web # The folder the action should deploy
+          branch: gh-pages # The branch the action should deploy to
+          clean: true # Automatically remove deleted files from the deployment branch
