@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/constants/app_constants.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'dart:html' as html;
+
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});
@@ -68,7 +72,7 @@ class HeaderSection extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  // Download Resume
+                  downloadResume();
                 },
                 style: ElevatedButton.styleFrom(
                   padding:
@@ -80,6 +84,8 @@ class HeaderSection extends StatelessWidget {
               OutlinedButton(
                 onPressed: () {
                   // Contact Me
+
+                  _launchUrl('mailto:${AppConstants.email}');
                 },
                 style: OutlinedButton.styleFrom(
                   padding:
@@ -92,5 +98,29 @@ class HeaderSection extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  // Function to trigger the download of the resume.
+  void downloadResume() {
+    final url = 'assets/resume/neha_resume.pdf';
+    final anchor = html.AnchorElement(href: url)
+      ..target = 'blank'
+      ..download = 'neha_resume.pdf';
+    // Trigger the download by simulating a click on the anchor element.
+    anchor.click();
+  }
+
+  Future<void> _launchUrl(String url) async {
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      Get.snackbar(
+        'Error',
+        'Could not launch $url',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
+    }
   }
 }

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha Tanwar - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #4285F4;
+            --secondary-color: #34A853;
+            --text-color: #333333;
+            --light-text: #666666;
+            --background: #ffffff;
+            --light-bg: #f5f7fa;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background);
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .resume-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
+        }
+
+        .sidebar {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .main-content {
+            padding: 0 10px;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--primary-color);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .contact-text {
+            font-size: 14px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .experience-item,
+        .project-item,
+        .education-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .date {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-bottom: 5px;
+        }
+
+        .company,
+        .degree {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .location {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12px;
+            }
+
+            .resume-container {
+                grid-template-columns: 1fr 2.5fr;
+                gap: 20px;
+            }
+
+            .sidebar {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <div class="sidebar">
+            <div class="profile">
+                <h1>Neha Tanwar</h1>
+                <div class="title">Senior Mobile Application Developer</div>
+            </div>
+
+            <div class="section">
+                <h2>Contact</h2>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span class="contact-text">+918393007560</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <span class="contact-text">nehatanwar197@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span class="contact-text">Noida, Uttar Pradesh, India</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🔗</span>
+                    <a href="https://www.linkedin.com/in/neha-tanwar" class="contact-text project-link">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Skills</h2>
+                <div class="skill-item">
+                    <div class="skill-name">Flutter & Dart</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">State Management</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Firebase</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">REST APIs</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">UI/UX Design</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <div class="degree">Bachelor of Technology in Computer Science</div>
+                    <div class="date">Aug 2014 — Aug 2018</div>
+                    <div class="location">Vidya College of Engineering, Meerut, India</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Technical Skills</h2>
+                <div class="tech-stack">
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Dart</span>
+                    <span class="tech-tag">GetX</span>
+                    <span class="tech-tag">Provider</span>
+                    <span class="tech-tag">Riverpod</span>
+                    <span class="tech-tag">BLOC</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">CI/CD</span>
+                    <span class="tech-tag">MVC</span>
+                    <span class="tech-tag">MVVM</span>
+                    <span class="tech-tag">Clean Architecture</span>
+                    <span class="tech-tag">Scrum</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>Summary</h2>
+                <p class="description">
+                    Experienced Mobile Developer with 4 years in mobile app development. Expertise in building
+                    high-performance, cross-platform apps for Android and iOS, leading development teams, and ensuring
+                    clean, maintainable code. Strong in integrating APIs, optimizing performance, and managing full app
+                    lifecycles from design to deployment.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Sr. Flutter Developer</h3>
+                    <div class="company">Ongraph Technologies Pvt. Ltd.</div>
+                    <div class="date">Jan 2024 — Present</div>
+                    <div class="location">Noida, India</div>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Flutter Developer</h3>
+                    <div class="company">Abhay Techno Services Private Limited</div>
+                    <div class="date">Apr 2022 — Jan 2024</div>
+                    <div class="location">Gurugram, India</div>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Software Development Engineer</h3>
+                    <div class="company">Arvous Technology</div>
+                    <div class="date">Mar 2021 — Apr 2022</div>
+                    <div class="location">Noida, India</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Projects</h2>
+                <div class="project-item">
+                    <div class="project-title">
+                        Growth Club
+                        <a href="https://play.google.com/store/apps/details?id=com.almond.pepsicoapp"
+                            class="project-link">View App</a>
+                    </div>
+                    <p class="description">
+                        This Flutter app, built with GetX for state management, offers a seamless experience for channel
+                        partners to track sales, earn rewards, and unlock exclusive perks. The app is designed with a
+                        focus on UI/UX to provide a clean, intuitive interface that enhances user engagement and ensures
+                        smooth navigation across both iOS and Android platforms.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">GetX</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">
+                        TESA CONNECT
+                        <a href="https://apps.apple.com/in/app/tesa-connect/id6450024483" class="project-link">View
+                            App</a>
+                    </div>
+                    <p class="description">
+                        A mobile application bridging Action TESA brand with its partners (carpenters, contractors,
+                        architects, interior decorators). The app provides latest offerings, educational content, and
+                        product handling information while maintaining real-time updates and partner benefits.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">GetX</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">
+                        Sudanese Express
+                        <a href="https://apps.apple.com/us/app/s-express/id6452722018" class="project-link">View App</a>
+                    </div>
+                    <p class="description">
+                        This app is for seamless money transfers from Europe to Sudan. We crafted an easy-to-use app
+                        that allows you to send money to your family and friends in Sudan, no matter where you are in
+                        Europe. With branches across Sudan, your loved ones can conveniently receive the funds they
+                        need.
+                    </p>
+                    <ul>
+                        <li>Developed the core and key features and functionalities of the application</li>
+                        <li>Integrated payment gateways for seamless international transactions</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Payment Integration</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">
+                        Rishta Rewards
+                        <a href="https://play.google.com/store/apps/details?id=com.app.hccbLoyaltyProgram"
+                            class="project-link">View App</a>
+                    </div>
+                    <p class="description">
+                        A cross-platform e-commerce application built with Flutter, integrating the Rishta Rewards
+                        loyalty program from Coca-Cola. The app provides an intuitive shopping experience with seamless
+                        performance across iOS and Android devices.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Provider</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">
+                        Zulu Travels
+                        <a href="https://apps.apple.com/us/app/zulu-travel/id1658401094" class="project-link">View
+                            App</a>
+                    </div>
+                    <p class="description">
+                        Zulu is a travel-based social application where users can post their travel experiences and
+                        share them with their connections. Tripadvisor API posts new place information on the social
+                        feed page at regular intervals to engage the app users.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Firestore</span>
+                        <span class="tech-tag">Cloud Functions</span>
+                        <span class="tech-tag">Google Maps API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
