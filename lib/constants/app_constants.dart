@@ -282,7 +282,7 @@ class AppConstants {
       'Xcode'
     ],
     'Architectures': ['MVC', 'MVVM', 'Clean Architecture'],
-    'Agile Methodologies': ['Scrum'],
+    'Agile Methodologies': ['Scrum', 'JIRA'],
     'Other Skills': ['Project Management', 'Mentorship', 'Code Review'],
   };
 

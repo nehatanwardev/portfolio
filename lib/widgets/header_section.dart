@@ -102,12 +102,31 @@ class HeaderSection extends StatelessWidget {
 
   // Function to trigger the download of the resume.
   void downloadResume() {
-    final url = 'assets/resume/neha_resume.pdf';
+    // Get the base URL for the current deployment
+    final baseUrl = html.window.location.href.split('#')[0];
+
+    // Remove trailing slash if present
+    final normalizedBaseUrl = baseUrl.endsWith('/')
+        ? baseUrl.substring(0, baseUrl.length - 1)
+        : baseUrl;
+
+    // Construct the full URL to the resume
+    final url = '$normalizedBaseUrl/assets/resume/neha_resume.pdf';
+
+    // Create an anchor element to trigger the download
     final anchor = html.AnchorElement(href: url)
-      ..target = 'blank'
-      ..download = 'neha_resume.pdf';
-    // Trigger the download by simulating a click on the anchor element.
+      ..target = '_blank'
+      ..setAttribute('download', 'Neha_Tanwar_Resume.pdf')
+      ..style.display = 'none';
+
+    // Add to the DOM, click, and remove
+    html.document.body?.children.add(anchor);
     anchor.click();
+
+    // Remove after a short delay to ensure the download starts
+    Future.delayed(const Duration(milliseconds: 100), () {
+      anchor.remove();
+    });
   }
 
   Future<void> _launchUrl(String url) async {
