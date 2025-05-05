@@ -115,7 +115,7 @@ class ExperienceSection extends StatelessWidget {
       ),
       endChild: Container(
         constraints: const BoxConstraints(
-          minHeight: 120,
+          minHeight: 150,
         ),
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
         child: Column(
