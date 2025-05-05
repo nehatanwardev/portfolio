@@ -111,7 +111,8 @@ class HeaderSection extends StatelessWidget {
         : baseUrl;
 
     // Construct the full URL to the resume
-    final url = '$normalizedBaseUrl/assets/resume/neha_resume.pdf';
+    final url =
+        'https://drive.google.com/file/d/1OziWJIBH3aUmEHUu40EqXakClDPyScUf/view?usp=sharing';
 
     // Create an anchor element to trigger the download
     final anchor = html.AnchorElement(href: url)

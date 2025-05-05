@@ -257,6 +257,48 @@ class AppConstants {
         'Push Notifications'
       ],
     },
+    {
+      "title": "DREAMer's Roadmap",
+      "subtitle": "Scholarship Discovery Platform",
+      "duration": "",
+      "company": "",
+      "description":
+          "A specialized mobile application designed for undocumented students and DACA recipients to discover and apply for educational scholarships. The platform provides comprehensive filtering tools, personalized scholarship matching, deadline notifications, and a community-driven approach to help students overcome financial barriers to higher education regardless of immigration status.",
+      "links": [
+        {
+          "title": "Google Play Store",
+          "url":
+              "https://play.google.com/store/apps/details?id=com.dreamers.app"
+        },
+        {
+          "title": "App Store",
+          "url": "https://apps.apple.com/us/app/dreamers-roadmap/id1452722018"
+        }
+      ],
+      "keyPoints": [
+        "Developed a comprehensive scholarship discovery system targeting DACA and undocumented students",
+        "Implemented advanced filtering capabilities based on eligibility, location, and education level",
+        "Built notification system for scholarship deadline reminders",
+        "Created user authentication with profile customization for personalized experience",
+        "Integrated community features allowing users to suggest new scholarships"
+      ],
+      "features": [
+        "Scholarship Discovery: Curated database of opportunities for undocumented students",
+        "Advanced Filtering: Filter by state, eligibility status, education level, and due date",
+        "Saved Scholarships: Bookmark and receive notifications for favorite opportunities",
+        "User Profiles: Personalized experience based on education level and immigration status",
+        "Scholarship Suggestions: Community-driven scholarship submissions and validation",
+        "Resources Section: Educational guidance and additional support materials"
+      ],
+      "technologies": [
+        "Flutter",
+        "GetX",
+        "Dio",
+        "Firebase",
+        "GetStorage",
+        "REST API"
+      ]
+    }
   ];
 
   // Education
